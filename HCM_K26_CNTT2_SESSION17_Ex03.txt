@@ -1,0 +1,29 @@
+SESSION17
+Bài 3 : Xử lý Sự cố Giao diện Website Doanh nghiệp
+
+Tên lớp: HCM K26 CNTT2
+Môn học: Nhập môn công nghệ thông tin
+Họ và tên: LƯƠNG THANH THƯ
+
+
+Phần 1: Báo cáo phân tích (I/O)
+Cách soi: F12 -> chọn khung lỗi -> tab Computed → xem 4 lớp từ trong ra ngoài: Content, Padding, Border, Margin.
+Sơ đồ khung “Nội dung bài học” (số mẫu):
+Content 600×320
+Padding 24px
+Border 2px
+Margin-bottom -20px (số âm)
+box-sizing: content-box nên kích thước thật là 652px, rộng hơn khung chứa.
+Nguyên nhân đè khung: margin âm kéo khung “Danh sách video” lên 20px. Ngoài ra content-box làm khung bị tràn ngang.
+Dự đoán nếu chỉ đổi Margin mà không kiểm tra Padding:
+Khoảng cách trong khung vẫn chật hoặc lệch vì padding không đổi.
+Với content-box, tăng margin hoặc padding làm tổng chiều ngang vượt khung chứa nên layout vỡ.
+Margin theo chiều dọc có thể gộp lại (lấy số lớn hơn thay vì cộng), nên sửa xong vẫn không thấy đổi.
+
+Phần 2: Thiết kế giải pháp
+Đổi box-sizing thành border-box cho cả hai khung.
+Đổi width thành 100% cho cả hai khung.
+Đổi margin-bottom của “Nội dung bài học” từ -20px thành 24px.
+Giữ nguyên padding và border để bố cục bên trong không bị ảnh hưởng.
+Giữ margin-top: 0 ở “Danh sách video” để tránh gộp margin.
+Kiểm tra lại bằng tab Computed, thu nhỏ cửa sổ để chắc chắn không có thanh cuộn ngang.
